@@ -18,13 +18,6 @@ class User
     @ip_address = ip_address
   end
 
-  def admin_login
-    login
-  end
-
-  def buyer_login
-    login
-  end
 
   def change_password=(new_password)
     @password = (new_password)
@@ -41,11 +34,19 @@ end
 
 class Admin < User
   include AdminPermisson
+
+  def admin_login
+    login
+  end
 end
 
 
 class Buyer < User
   include BuyerPermission
+  
+  def buyer_login
+    login
+  end
 end
 
 
